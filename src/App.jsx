@@ -1,7 +1,7 @@
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import './App.css'
-
+import Login  from './components/pages/Login'
 function App() {
   return (
     <div className="app">
@@ -10,6 +10,7 @@ function App() {
         <h1>Welcome to Wordlane Tech Publications</h1>
         <p>Join the fastest growing publishing platform in the world</p>
       </main>
+      <Login />
       <Footer />
     </div>
   )
