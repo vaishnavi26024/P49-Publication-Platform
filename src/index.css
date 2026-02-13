@@ -15,10 +15,25 @@ body {
   min-height: 100vh;
   background-color: #fff;
   color: #333;
+   background: var(--navy);
+  font-family: 'Inter', sans-serif;
+  
 }
 
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy: #0A1A3A;
+  --white: #FFFFFF;
+  --gray: #D1D5DB;
+  --blue: #3B82F6;
+  --sky: #60A5FA;
+  --green: #22C55E;
 }
