@@ -1,4 +1,5 @@
 import './Footer.css';
+import Logo from './Logo';
 
 function Footer() {
   return (
@@ -6,7 +7,7 @@ function Footer() {
       <div className="footer-container">
         <div className="footer-section">
           <div className="footer-logo">
-            <span className="logo-icon">📚</span>
+            <Logo />
             <div>
               <div className="logo-text">Word Lane Publications</div>
               <div className="footer-description">
@@ -20,22 +21,18 @@ function Footer() {
         <div className="footer-divider" />
 
         <div className="footer-section">
-          <h3>For Writers</h3>
+          <h3>Company</h3>
           <ul>
-            <li><a href="#publish">Get Published</a></li>
-            <li><a href="#distribute">Distribute</a></li>
-            <li><a href="#marketing">Marketing Tools</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
 
         <div className="footer-section">
-          <h3>Read</h3>
+          <h3>Support</h3>
           <ul>
-            <li><a href="#trending">Trending This Week</a></li>
-            <li><a href="#releases">New Releases</a></li>
-            <li><a href="#editors">Editor's Picks</a></li>
-            <li><a href="#bestsellers">Bestsellers</a></li>
-            <li><a href="#amazon">Amazon Bestsellers</a></li>
+            <li><a href="#contact">Contact Us</a></li>
           </ul>
         </div>
 
