@@ -1,0 +1,400 @@
+/* ================= PAGE BACKGROUND ================= */
+
+.store-wrapper{
+  background: linear-gradient(180deg,#06122b,#081a3f);
+  color:white;
+  min-height:100vh;
+}
+
+
+/* ================= HERO ================= */
+
+.store-hero{
+  margin-top:90px;
+  padding:80px 8%;
+  background: linear-gradient(135deg,#081a3f,#0d2c75);
+}
+
+.store-hero input{
+  margin-top:20px;
+  padding:12px 16px;
+  width:320px;
+  border-radius:8px;
+  border:1px solid #60A5FA;
+  background:#06122b;
+  color:white;
+}
+
+
+/* ================= SLIDER ================= */
+
+.marquee-section{
+  width:100%;
+  overflow:hidden;
+  padding:40px 0;
+  position:relative;
+}
+
+/* edge fade */
+.marquee-section::before,
+.marquee-section::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:80px;
+  height:100%;
+  z-index:2;
+}
+
+.marquee-section::before{
+  left:0;
+  background:linear-gradient(to right,#06122b,transparent);
+}
+
+.marquee-section::after{
+  right:0;
+  background:linear-gradient(to left,#06122b,transparent);
+}
+
+.marquee-track{
+  display:flex;
+  gap:24px;
+  width:max-content;
+  animation:marqueeMove 45s linear infinite;
+}
+
+@keyframes marqueeMove{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-25%); }
+}
+
+.marquee-card{
+  flex:0 0 200px;
+  height:220px;
+  border-radius:14px;
+  overflow:hidden;
+  background:linear-gradient(180deg,#0b1f4f,#071432);
+  border:1px solid rgba(96,165,250,0.25);
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+  transition:0.35s ease;
+}
+
+.marquee-card:hover{
+  transform:translateY(-6px);
+  box-shadow:
+    0 18px 35px rgba(0,0,0,0.7),
+    0 0 20px rgba(96,165,250,0.25);
+}
+
+.marquee-card img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+}
+
+.marquee-card p{
+  padding:10px;
+  font-size:14px;
+}
+
+
+/* ================= SECTION ================= */
+
+.section-block{
+  padding:50px 8%;
+}
+
+.section-block h2{
+  margin-bottom:24px;
+}
+
+
+/* ================= GRID ================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+}
+
+
+/* ================= PREMIUM BOOK CARD ================= */
+
+.book-card{
+  border-radius:18px;
+  overflow:hidden;
+  position:relative;
+  background:linear-gradient(180deg,#0b1f4f,#071432);
+  border:1px solid rgba(96,165,250,0.18);
+  box-shadow:
+    0 12px 35px rgba(0,0,0,0.65),
+    inset 0 0 0 1px rgba(255,255,255,0.03);
+  transition:0.4s ease;
+}
+
+.book-card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.85),
+    0 0 25px rgba(96,165,250,0.35);
+}
+
+
+/* IMAGE */
+
+.book-img{
+  overflow:hidden;
+}
+
+.book-img img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  transition:0.6s ease;
+}
+
+.book-card:hover .book-img img{
+  transform:scale(1.08);
+}
+
+
+/* CARD CONTENT */
+
+.book-info{
+  padding:18px 18px 16px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.book-info.center{
+  align-items:center;
+  text-align:center;
+}
+
+.book-info h3{
+  font-size:18px;
+  margin:0;
+  padding-left:3px;
+  letter-spacing:.3px;
+}
+
+
+/* PRICE + BUTTON ROW */
+
+.book-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:8px;
+}
+
+.price{
+  font-size:20px;
+  font-weight:600;
+  color:#22C55E;
+  letter-spacing:.5px;
+}
+
+.buy-btn{
+  padding:8px 16px;
+  border-radius:10px;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+  background:linear-gradient(135deg,#22C55E,#16A34A);
+  color:white;
+  box-shadow:0 6px 14px rgba(34,197,94,0.35);
+  transition:0.3s ease;
+}
+
+.buy-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 22px rgba(34,197,94,0.55);
+}
+
+.buy-btn:active{
+  transform:translateY(0);
+}
+
+
+/* ================= FLIP BOOK ================= */
+
+.flip-book-row{
+  display:flex;
+  flex-wrap:nowrap;     /* NEVER wrap */
+  gap:30px;
+  width:100%;
+  overflow:hidden;
+}
+
+
+.flip-card{
+  flex:0 0 calc((100% - 120px) / 5);
+  height:300px;
+  perspective:1000px;
+}
+
+
+.flip-inner{
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:transform .8s;
+}
+
+.flip-card:hover .flip-inner{
+  transform:rotateY(180deg);
+}
+
+.flip-front,
+.flip-back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  backface-visibility:hidden;
+  border-radius:18px;
+  overflow:hidden;
+  background:linear-gradient(180deg,#0b1f4f,#071432);
+  border:1px solid rgba(96,165,250,0.18);
+  box-shadow:
+    0 12px 35px rgba(0,0,0,0.65),
+    inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+
+.flip-front img{
+  width:100%;
+  height:80%;
+  object-fit:cover;
+}
+
+.flip-back{
+  transform:rotateY(180deg);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
+
+
+/* ================= AUTHORS ================= */
+
+.author-row{
+  display:flex;
+  gap:30px;
+}
+
+.author-card{
+  text-align:center;
+  padding:25px;
+  width:180px;
+  background:#0b1f4f;
+  border-radius:14px;
+}
+
+.author-card img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:10px;
+}
+/* ===== FLIP CAROUSEL ===== */
+
+.flip-carousel{
+  position:relative;
+  display:flex;
+  align-items:center;
+  width:100%;
+}
+
+.flip-book-row{
+  display:flex;
+  gap:30px;
+  overflow:hidden;
+  width:100%;
+}
+
+.flip-nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:5;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:none;
+  cursor:pointer;
+  font-size:22px;
+  font-weight:600;
+  color:white;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(6px);
+  transition:0.3s;
+}
+
+.flip-nav:hover{
+  background:#3B82F6;
+}
+
+.flip-nav.left{ left:-20px; }
+.flip-nav.right{ right:-20px; }
+
+.flip-card{
+  flex:0 0 calc((100% - 120px) / 5);
+  height:300px;
+  perspective:1000px;
+}
+/* ================= TRENDING CAROUSEL ================= */
+
+.trend-carousel{
+  position:relative;
+  display:flex;
+  align-items:center;
+  width:100%;
+}
+
+/* single row only */
+.trend-row{
+  display:flex;
+  flex-wrap:nowrap;
+  gap:30px;
+  width:100%;
+  overflow:hidden;
+}
+
+/* exactly 5 cards */
+.trend-row .book-card{
+  flex:0 0 calc((100% - 120px) / 5);
+}
+
+/* arrows */
+.trend-nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:5;
+
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:none;
+  cursor:pointer;
+
+  font-size:22px;
+  font-weight:600;
+  color:white;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(6px);
+  transition:0.3s;
+}
+
+.trend-nav:hover{
+  background:#3B82F6;
+}
+
+.trend-nav.left{ left:-20px; }
+.trend-nav.right{ right:-20px; }
+
