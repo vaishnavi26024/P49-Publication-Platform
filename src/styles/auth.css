@@ -5,175 +5,184 @@
 }
 
 .auth-wrapper {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-  transition: transform .8s cubic-bezier(0.77,0,0.175,1);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Animated Blur Background */
+.bg-particle {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
+  filter: blur(140px);
+  opacity: 0.25;
+  animation: float 15s infinite alternate ease-in-out;
+}
+
+.p1 {
+  top: -150px;
+  left: -150px;
+}
+.p2 {
+  bottom: -150px;
+  right: -150px;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0px) rotate(0deg);
   }
-  
-  /* Animated Blur Background */
-  .bg-particle {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, #3B82F6 0%, transparent 70%);
-    filter: blur(140px);
-    opacity: 0.25;
-    animation: float 15s infinite alternate ease-in-out;
+  to {
+    transform: translateY(80px) rotate(20deg);
   }
-  
-  .p1 { top: -150px; left: -150px; }
-  .p2 { bottom: -150px; right: -150px; }
-  
-  @keyframes float {
-    from { transform: translateY(0px) rotate(0deg); }
-    to { transform: translateY(80px) rotate(20deg); }
-  }
-  
-  /* Split Panels */
-  .panel {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-    position: relative;
-  }
-  
-  /* Branding Panel */
-  .brand-panel {
-    background: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80") center/cover;
-    color: white;
-    flex-direction: column;
-    text-align: center;
-    padding: 4rem;
-  }
-  
-  .brand-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(10,26,58,0.7);
-    backdrop-filter: blur(4px);
-  }
-  
-  .brand-content {
-    position: relative;
-    z-index: 2;
-  }
-  
-  .brand-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-  
-  .brand-tagline {
-    color: var(--gray);
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-  }
-  
-  /* Form Panel */
-  .form-panel {
-    background: var(--navy);
-  }
-  
-  /* Glass Card */
-  .auth-card {
-    width: 440px;
-    padding: 3rem;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(96,165,250,0.3);
-    box-shadow: 0 0 60px rgba(0,0,0,0.4);
-    max-width: 420px;
-  }
-  
-  .auth-title {
-    color: var(--white);
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-  }
-  
-  /* Inputs */
-  .input-group {
-    margin-bottom: 1.3rem;
-    position: relative;
-  }
-  
-  .input-group input {
-    max-width: 420px;
-    width: 100%;
-    padding: 14px 45px;
-    border-radius: 10px;
-    border: 1px solid var(--sky);
-    background: transparent;
-    color: var(--white);
-    outline: none;
-    transition: 0.3s;
-  }
-  
-  .input-group input:focus {
-    border-color: var(--blue);
-    box-shadow:
-      0 0 0 2px rgba(59,130,246,0.2),
-      0 0 15px rgba(59,130,246,0.4);
-  }
-  
-  
-  
-  .input-icon {
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--sky);
-    transition: 0.3s;
-  }
-  
-  .input-group input:focus + .input-icon {
-    color: var(--green);
-    transform: translateY(-50%) scale(1.2);
-  }
-  
-  /* Button */
-  .auth-btn {
-    width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    background: var(--green);
-    transition: 0.4s;
-  }
-  
-  .auth-btn:hover {
-    background: var(--blue);
-    box-shadow: 0 0 20px rgba(59,130,246,0.6);
-  }
-  
-  /* Switch text */
-  .switch-link {
-    margin-top: 1rem;
-    text-align: center;
-    color: var(--gray);
-    cursor: pointer;
-  }
-  
-  .switch-link span {
-    color: var(--blue);
-  }
-  
-  /* Panel Swap */
-  .panel {
+}
+
+/* Split Panels */
+.panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+  position: relative;
+}
+
+/* Branding Panel */
+.brand-panel {
+  background: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80")
+    center/cover;
+  color: white;
+  flex-direction: column;
+  text-align: center;
+  padding: 4rem;
+}
+
+.brand-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 26, 58, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.brand-content {
+  position: relative;
+  z-index: 2;
+}
+
+.brand-title {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.brand-tagline {
+  color: var(--gray);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+/* Form Panel */
+.form-panel {
+  background: var(--navy);
+}
+
+/* Glass Card */
+.auth-card {
+  width: 440px;
+  padding: 3rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.4);
+  max-width: 420px;
+}
+
+.auth-title {
+  color: var(--white);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+/* Inputs */
+.input-group {
+  margin-bottom: 1.3rem;
+  position: relative;
+}
+
+.input-group input {
+  max-width: 420px;
+  width: 100%;
+  padding: 14px 45px;
+  border-radius: 10px;
+  border: 1px solid var(--sky);
+  background: transparent;
+  color: var(--white);
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: var(--blue);
+  box-shadow:
+    0 0 0 2px rgba(59, 130, 246, 0.2),
+    0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--sky);
+  transition: 0.3s;
+}
+
+.input-group input:focus + .input-icon {
+  color: var(--green);
+  transform: translateY(-50%) scale(1.2);
+}
+
+/* Button */
+.auth-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: var(--green);
+  transition: 0.4s;
+}
+
+.auth-btn:hover {
+  background: var(--blue);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+}
+
+/* Switch text */
+.switch-link {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--gray);
+  cursor: pointer;
+}
+
+.switch-link span {
+  color: var(--blue);
+}
+
+/* Panel Swap */
+.panel {
   flex: 1;
   position: relative;
-  transition: transform .8s cubic-bezier(0.77,0,0.175,1);
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .brand-panel {
@@ -192,72 +201,73 @@
   transform: translateX(-100%);
 }
 
-  
-  .brand-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-  }
-  
-  .brand-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.2rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(90deg, #FFFFFF, #60A5FA);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .brand-tagline {
-    color: var(--gray);
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    position: relative;
-  }
-  
-  .brand-divider {
-    width: 60px;
-    height: 3px;
-    background: var(--green);
-    margin: 1.5rem auto;
-    border-radius: 3px;
-  }
-  
-  .shape {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.2;
-  }
-  
-  .shape1 {
-    width: 300px;
-    height: 300px;
-    background: #3B82F6;
-    top: 20%;
-    left: 30%;
-  }
-  
-  .shape2 {
-    width: 250px;
-    height: 250px;
-    background: #22C55E;
-    bottom: 15%;
-    right: 20%;
-  }
-  .brand-panel {
-    position: relative;
-    overflow: hidden; /* important */
-  }
-  .floating-img {
+.brand-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.brand-title {
+  font-family: "Playfair Display", serif;
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #ffffff, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-tagline {
+  color: var(--gray);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.brand-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--green);
+  margin: 1.5rem auto;
+  border-radius: 3px;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.2;
+}
+
+.shape1 {
+  width: 300px;
+  height: 300px;
+  background: #3b82f6;
+  top: 20%;
+  left: 30%;
+}
+
+.shape2 {
+  width: 250px;
+  height: 250px;
+  background: #22c55e;
+  bottom: 15%;
+  right: 20%;
+}
+.brand-panel {
+  position: relative;
+  overflow: hidden; /* important */
+}
+.floating-img {
   position: absolute;
   width: 170px;
 
-  opacity: 0.4;            /* visible but soft */
-  filter: none;             /* remove blur */
+  opacity: 0.4; /* visible but soft */
+  filter: none; /* remove blur */
   z-index: 1;
 
-  transition: transform .4s ease, opacity .4s ease;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
 }
 
 .floating-img:hover {
@@ -265,43 +275,158 @@
   transform: scale(1.06);
 }
 
-  
-  /* Individual positions */
-  .img1 { top: 8%; left: 10%; }
-  .img2 { bottom: 12%; right: 12%; }
-  .img3 { top: 35%; right: 18%; }
-  .img4 { bottom: 30%; left: 8%; }
-  .img5 { top: 20%; right: 35%; }
+/* Individual positions */
+.img1 {
+  top: 8%;
+  left: 10%;
+}
+.img2 {
+  bottom: 12%;
+  right: 12%;
+}
+.img3 {
+  top: 35%;
+  right: 18%;
+}
+.img4 {
+  bottom: 30%;
+  left: 8%;
+}
+.img5 {
+  top: 20%;
+  right: 35%;
+}
 
-  .glow-shape {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.25;
-    z-index: 0;
+.glow-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.shape1 {
+  width: 300px;
+  height: 300px;
+  background: #3b82f6;
+  top: 20%;
+  left: 30%;
+}
+
+.shape2 {
+  width: 250px;
+  height: 250px;
+  background: #22c55e;
+  bottom: 15%;
+  right: 20%;
+}
+
+.shape3 {
+  width: 200px;
+  height: 200px;
+  background: #60a5fa;
+  top: 60%;
+  left: 50%;
+}
+
+/* --- RESPONSIVENESS --- */
+
+@media (max-width: 1024px) {
+  .auth-wrapper {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+  }
+
+  .panel {
+    width: 100%;
+    min-height: 50vh;
+    padding: 2rem;
+  }
+
+  /* Refined swap animation for mobile: focus on content switch rather than panel slide */
+  .auth-wrapper.swap .brand-panel,
+  .auth-wrapper.swap .form-panel {
+    transform: none;
+    opacity: 0.95;
+  }
+
+  .auth-card {
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .auth-wrapper.swap .auth-card {
+    transform: scale(1.02);
+  }
+
+  .brand-panel {
+    order: 1;
+    padding: 3rem 1rem;
+  }
+
+  .form-panel {
+    order: 2;
+  }
+
+  .brand-title {
+    font-size: 2.2rem;
+  }
+
+  .auth-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+  }
+
+  /* Reduce floating images visibility/presence on tablet */
+  .floating-img {
+    width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hide smaller floating images on mobile to focus on content */
+  .floating-img {
+    display: none;
   }
   
-  .shape1 {
-    width: 300px;
-    height: 300px;
-    background: #3B82F6;
-    top: 20%;
-    left: 30%;
+  .brand-title {
+    font-size: 1.8rem;
   }
-  
-  .shape2 {
-    width: 250px;
-    height: 250px;
-    background: #22C55E;
-    bottom: 15%;
-    right: 20%;
+
+  .brand-tagline {
+    font-size: 1rem;
+    letter-spacing: 1px;
   }
-  
-  .shape3 {
-    width: 200px;
-    height: 200px;
-    background: #60A5FA;
-    top: 60%;
-    left: 50%;
+
+  .auth-card {
+    padding: 1.5rem;
+    border-radius: 15px;
   }
-  
+
+  .auth-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .input-group input {
+    padding: 12px 40px;
+  }
+}
+
+/* Browser Zoom & Extra Small Screens */
+@media (max-width: 480px) {
+  .panel {
+    min-height: auto;
+    padding: 1.5rem 1rem;
+  }
+
+  .auth-card {
+    background: transparent;
+    backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+}
