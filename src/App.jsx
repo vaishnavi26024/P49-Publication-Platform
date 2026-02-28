@@ -1,18 +1,36 @@
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import './App.css'
-import Login  from './components/pages/Login'
+import BrandHome  from './components/pages/Login'
+import Login from './components/pages/Signup'
+import Orders from './components/pages/Orders'
+import Wishlist from './components/pages/Wishlist'
+import Cart from './components/pages/Cart'
+import { CartProvider } from './context/CartContext'
+import Checkout from './components/pages/Checkout'
+
 function App() {
   return (
-    <div className="app">
-      <Navbar />
-      <main className="main-content">
-        <h1>Welcome to Wordlane Tech Publications</h1>
-        <p>Join the fastest growing publishing platform in the world</p>
-      </main>
-      <Login />
-      <Footer />
-    </div>
+    <CartProvider>
+      <Router>
+        <div className="app">
+          <Navbar />
+          <main className="main-content">
+            <Routes>
+              <Route path="/" element={<BrandHome />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/get-started" element={<Navigate to="/login" replace />} />
+              <Route path="/orders" element={<Orders />} />
+              <Route path="/wishlist" element={<Wishlist />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </CartProvider>
   )
 }
 

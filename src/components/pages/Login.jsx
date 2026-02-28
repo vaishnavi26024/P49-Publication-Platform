@@ -1,20 +1,19 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
-import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
-import Input from "../common/Input";
+import Logo from "../common/Logo";
 import "../../styles/auth.css";
 
-export default function Auth() {
-  const [isLogin, setIsLogin] = useState(true);
+export default function BrandHome() {
+  const navigate = useNavigate();
 
   return (
-    <div className={`auth-wrapper ${!isLogin ? "swap" : ""} transition={{ duration: 0.8 }}`}>
+    <div className="auth-wrapper brand-only">
       
       <div className="bg-particle p1"></div>
       <div className="bg-particle p2"></div>
 
-      {/* BRAND PANEL */}
+      {/* LEFT PANEL - BRAND */}
       
       <motion.div 
   className="panel brand-panel"
@@ -23,37 +22,6 @@ export default function Auth() {
 >
   <div className="brand-overlay"></div>
 
-  {/* Floating Book */}
-  <motion.img
-    src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=600&q=80"
-    alt="Books"
-    style={{
-      position: "absolute",
-      width: "180px",
-      top: "10%",
-      left: "15%",
-      borderRadius: "12px",
-      opacity: 0.15
-    }}
-    animate={{ y: [0, -20, 0] }}
-    transition={{ duration: 6, repeat: Infinity }}
-  />
-
-  {/* Floating Desk */}
-  <motion.img
-    src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80"
-    alt="Writing Desk"
-    style={{
-      position: "absolute",
-      width: "200px",
-      bottom: "10%",
-      right: "15%",
-      borderRadius: "12px",
-      opacity: 0.15
-    }}
-    animate={{ y: [0, 20, 0] }}
-    transition={{ duration: 7, repeat: Infinity }}
-  />
   {/* Floating Publication Images */}
 
 <motion.img
@@ -96,82 +64,75 @@ export default function Auth() {
 
 
   <div className="brand-content">
-    <motion.h1
-      className="brand-title"
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-    >
-      Word Lane Publication Pvt. Ltd.
-    </motion.h1>
-
-    <motion.div
-      className="brand-divider"
-      initial={{ width: 0 }}
-      animate={{ width: 60 }}
-      transition={{ delay: 0.6 }}
-    />
-
-    <motion.p
-      className="brand-tagline"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1 }}
-    >
-      Publish. Promote. Prosper.
-    </motion.p>
+    <Logo />
   </div>
 </motion.div>
     
-      {/* FORM PANEL */}
+      {/* RIGHT PANEL - CONTENT AREA */}
       <motion.div 
-        className="panel form-panel"
+        className="panel form-panel brand-action-panel"
         layout
         transition={{ duration: 0.8 }}
       >
-        <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8} glareEnable={true}>
-          <div className="auth-card">
-
-            <AnimatePresence mode="wait">
-              {isLogin ? (
-                <motion.div
-                  key="login"
-                  initial={{ x: 100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: -100, opacity: 0 }}
-                  transition={{ duration: 0.5 }}
+        <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} glareEnable={true} glareMaxOpacity={0.1}>
+          <div className="brand-action-card">
+            <motion.div 
+              className="books-hover-container"
+              initial="initial"
+              whileHover="hover"
+            >
+              <div className="books-pair">
+                {/* BACK BOOK - Book 1 */}
+                <motion.div 
+                  className="book-item back-book"
+                  variants={{
+                    initial: { zIndex: 4, x: -20, rotate: -6 },
+                    hover: { zIndex: 5, x: 20, rotate: 6 }
+                  }}
+                  animate={{
+                    y: [0, -8, 0],
+                  }}
+                  transition={{
+                    y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                    default: { type: "spring", stiffness: 200, damping: 25 }
+                  }}
                 >
-                  <h2 className="auth-title">Welcome Back</h2>
-                  <Input type="email" placeholder="Email" icon={FaEnvelope} />
-                  <Input type="password" placeholder="Password" icon={FaLock} />
-                  <button className="auth-btn">Login</button>
-                  <p className="switch-link">
-                    Don’t have an account?{" "}
-                    <span onClick={() => setIsLogin(false)}>Sign Up</span>
-                  </p>
+                  <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/book%205%20%281%29-5JMhZ96vgiMKWSEYmIbiDm6TTesisB.png" alt="Book 1" />
                 </motion.div>
-              ) : (
-                <motion.div
-                  key="signup"
-                  initial={{ x: -100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: 100, opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <h2 className="auth-title">Create Account</h2>
-                  <Input type="text" placeholder="Full Name" icon={FaUser} />
-                  <Input type="email" placeholder="Email" icon={FaEnvelope} />
-                  <Input type="password" placeholder="Password" icon={FaLock} />
-                  <Input type="password" placeholder="Confirm Password" icon={FaLock} />
-                  <button className="auth-btn">Sign Up</button>
-                  <p className="switch-link">
-                    Already have an account?{" "}
-                    <span onClick={() => setIsLogin(true)}>Login</span>
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
 
+                {/* FRONT BOOK - Book 2 */}
+                <motion.div 
+                  className="book-item front-book"
+                  variants={{
+                    initial: { zIndex: 5, x: 20, rotate: 6 },
+                    hover: { zIndex: 4, x: -20, rotate: -6 }
+                  }}
+                  animate={{
+                    y: [0, 8, 0],
+                  }}
+                  transition={{
+                    y: { duration: 4.5, repeat: Infinity, ease: "easeInOut" },
+                    default: { type: "spring", stiffness: 200, damping: 25 }
+                  }}
+                >
+                  <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/book%205-BMFuGatO0sr4OtEBszyk43SnAb7JFo.png" alt="Book 2" />
+                </motion.div>
+              </div>
+              <div className="animation-glow"></div>
+            </motion.div>
+
+            <div className="action-content">
+              <h2 className="action-title">Your Masterpiece Deserves to be Read</h2>
+              <p className="action-desc">
+                Join thousands of authors who have published their dreams with us.
+              </p>
+              <button 
+                className="start-publishing-btn"
+                onClick={() => navigate("/login")}
+              >
+                Start Publishing
+              </button>
+            </div>
           </div>
         </Tilt>
       </motion.div>
