@@ -1,0 +1,499 @@
+.bestsellers-page {
+  min-height: 100vh;
+  padding: 100px 20px 40px;
+  background: var(--navy);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  color: #ff4757;
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.breadcrumb a {
+  color: #ff4757;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.breadcrumb a:hover {
+  opacity: 0.7;
+}
+
+.breadcrumb span {
+  color: var(--white);
+}
+
+.bestsellers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.bestsellers-header h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+}
+
+.add-book-btn {
+  background: #ff4757;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.add-book-btn:hover {
+  background: #ff3838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4);
+}
+
+.books-horizontal {
+  display: flex;
+  overflow-x: auto;
+  gap: 24px;
+  padding: 20px 0;
+  margin-bottom: 40px;
+  scroll-behavior: smooth;
+}
+
+.books-horizontal::-webkit-scrollbar {
+  height: 8px;
+}
+
+.books-horizontal::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.books-horizontal::-webkit-scrollbar-thumb {
+  background: rgba(255, 71, 87, 0.5);
+  border-radius: 4px;
+}
+
+.books-horizontal::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 71, 87, 0.7);
+}
+
+.book-card {
+  flex: 0 0 220px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(45deg, #3B82F6, #60A5FA, #3B82F6);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.book-card:hover::before {
+  opacity: 1;
+}
+
+.book-buy-link {
+  display: block;
+  background: #ff4757;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.book-buy-link:hover {
+  background: #ff3838;
+  transform: scale(1.05);
+}
+
+.book-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.6), 0 12px 24px rgba(0, 0, 0, 0.3);
+  border-color: rgba(59, 130, 246, 0.8);
+}
+
+.book-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 140%;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.book-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+
+.book-card:hover .book-image {
+  transform: scale(1.1);
+}
+
+.book-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.book-card:hover .book-actions {
+  opacity: 1;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.edit-btn {
+  background: #3B82F6;
+  color: white;
+}
+
+.edit-btn:hover {
+  background: #2563EB;
+}
+
+.delete-btn {
+  background: #EF4444;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #DC2626;
+}
+
+.book-info {
+  padding: 16px;
+}
+
+.book-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.book-author {
+  font-size: 14px;
+  color: var(--gray);
+  margin: 0;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #1a2744;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h2 {
+  color: var(--white);
+  margin: 0 0 24px 0;
+  font-size: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ff4757;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.cancel-btn,
+.submit-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cancel-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+.cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.submit-btn {
+  background: #ff4757;
+  color: white;
+}
+
+.submit-btn:hover {
+  background: #ff3838;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .books-horizontal {
+    gap: 20px;
+  }
+
+  .book-card {
+    flex: 0 0 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bestsellers-page {
+    padding: 90px 15px 30px;
+  }
+
+  .books-horizontal {
+    gap: 16px;
+  }
+
+  .book-card {
+    flex: 0 0 180px;
+  }
+
+  .bestsellers-header h1 {
+    font-size: 28px;
+  }
+
+  .add-book-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .modal-content {
+    padding: 24px;
+  }
+
+  .modal-content h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bestsellers-page {
+    padding: 80px 10px 20px;
+  }
+
+  .books-horizontal {
+    gap: 12px;
+  }
+
+  .book-card {
+    flex: 0 0 150px;
+  }
+
+  .bestsellers-header {
+    gap: 15px;
+  }
+
+  .bestsellers-header h1 {
+    font-size: 24px;
+  }
+
+  .add-book-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .book-info {
+    padding: 12px;
+  }
+
+  .book-title {
+    font-size: 14px;
+  }
+
+  .book-author {
+    font-size: 12px;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+
+  .breadcrumb {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .book-card {
+    flex: 0 0 130px;
+  }
+
+  .bestsellers-header h1 {
+    font-size: 20px;
+  }
+
+  .add-book-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .book-info {
+    padding: 10px;
+  }
+
+  .book-title {
+    font-size: 13px;
+  }
+
+  .book-author {
+    font-size: 11px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 280px) {
+  .bestsellers-page {
+    padding: 70px 8px 15px;
+  }
+
+  .book-card {
+    flex: 0 0 110px;
+  }
+
+  .bestsellers-header h1 {
+    font-size: 18px;
+  }
+
+  .add-book-btn {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+
+  .book-info {
+    padding: 8px;
+  }
+
+  .book-title {
+    font-size: 12px;
+  }
+
+  .book-author {
+    font-size: 10px;
+  }
+
+  .modal-content {
+    padding: 16px;
+  }
+
+  .modal-content h2 {
+    font-size: 18px;
+  }
+
+  .form-group input {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .cancel-btn,
+  .submit-btn {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+}
