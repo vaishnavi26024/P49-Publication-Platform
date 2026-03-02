@@ -12,11 +12,18 @@ export default function Logo() {
         Word Lane Publication Pvt. Ltd.
       </motion.h1>
 
+      <motion.div
+        className="brand-divider"
+        initial={{ width: 0 }}
+        animate={{ width: 60 }}
+        transition={{ delay: 0.6 }}
+      />
+
       <motion.p 
         className="brand-tagline"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
+        transition={{ delay: 1 }}
       >
         Publish. Promote. Prosper.
       </motion.p>
