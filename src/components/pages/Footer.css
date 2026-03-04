@@ -1,5 +1,8 @@
-.footer {
-  background-color: #00008B;
+                              
+                    .footer {
+    background: #122450;
+  border-top: 1px solid #60A5FA;
+  padding-top: 40px;
   color: #ffffff;
   padding: 40px 20px 20px;
   margin-top: auto;
@@ -209,4 +212,81 @@
 .copyright {
   font-size: 12px;
   color: #e1e6ef;
+}
+
+.contact-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.contact-left h3,
+.contact-right h3 {
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.contact-text {
+  color: #D1D5DB;
+  margin: 5px 0;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #60A5FA;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 20px;
+  transition: all 0.4s ease;
+}
+
+.social-icons a:hover {
+  background: #22C55E;
+  transform: scale(1.15) rotate(5deg);
+}
+
+
+.footer-section h3,
+.contact-left h3,
+.contact-right h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.footer {
+  animation: fadeInUp 1s ease-in-out;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.footer-link-text {
+  color: #3B82F6;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-link-text:hover {
+  text-decoration: underline;
 }

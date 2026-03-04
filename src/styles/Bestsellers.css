@@ -1,6 +1,6 @@
 .bestsellers-page {
   min-height: 100vh;
-  padding: 100px 20px 40px;
+  padding: 10px 10px 20px;
   background: var(--navy);
   max-width: 1400px;
   margin: 0 auto;
@@ -94,16 +94,15 @@
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   overflow: hidden;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
   display: flex;
   flex-direction: column;
 }
 
-.book-card::before {
+/* .book-card::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -111,15 +110,16 @@
   padding: 2px;
   background: linear-gradient(45deg, #3B82F6, #60A5FA, #3B82F6);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
   transition: opacity 0.4s ease;
-}
+} */
 
-.book-card:hover::before {
+/* .book-card:hover::before {
   opacity: 1;
-}
+} */
 
 .book-buy-link {
   display: block;
@@ -139,9 +139,8 @@
 }
 
 .book-card:hover {
-  transform: translateY(-12px) scale(1.05);
-  box-shadow: 0 0 40px rgba(59, 130, 246, 0.6), 0 12px 24px rgba(0, 0, 0, 0.3);
-  border-color: rgba(59, 130, 246, 0.8);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .book-image-wrapper {
@@ -162,9 +161,9 @@
   transition: all 0.4s ease;
 }
 
-.book-card:hover .book-image {
+/* .book-card:hover .book-image {
   transform: scale(1.1);
-}
+} */
 
 .book-actions {
   position: absolute;
@@ -220,6 +219,7 @@
   margin: 0 0 8px 0;
   line-height: 1.3;
   display: -webkit-box;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;

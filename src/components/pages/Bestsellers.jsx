@@ -90,6 +90,11 @@ export default function Bestsellers() {
                 </div>
               )}
             </div>
+            <div className="book-info">
+              <h3 className="book-title">{book.title}</h3>
+              <p className="book-author">by {book.author}</p>
+              <div className="book-price">₹{book.price}</div>
+            </div>
           </div>
         ))}
       </div>

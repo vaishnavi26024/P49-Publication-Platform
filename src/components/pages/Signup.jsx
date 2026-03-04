@@ -5,8 +5,8 @@ import { FaUser, FaLock, FaEnvelope, FaPhone, FaKey } from "react-icons/fa";
 import Input from "../common/Input";
 import "../../styles/auth.css";
 
-export default function Login() {
-  const [view, setView] = useState("login"); // login, signup, forgot-step1, forgot-step2, forgot-step3, otp-verify
+export default function Auth({ defaultView = "login" }) {
+  const [view, setView] = useState(defaultView); // login, signup, forgot-step1, forgot-step2, forgot-step3, otp-verify
   const [identifier, setIdentifier] = useState("");
 
   const handleNextForgot = (nextView) => setView(nextView);
@@ -28,10 +28,10 @@ export default function Login() {
                   exit={{ opacity: 0, scale: 0.95 }}
                 >
                   <h2 className="auth-title">Welcome Back</h2>
-                  <Input 
-                    type="text" 
-                    placeholder="Email or Mobile Number" 
-                    icon={FaEnvelope} 
+                  <Input
+                    type="text"
+                    placeholder="Email or Mobile Number"
+                    icon={FaEnvelope}
                     value={identifier}
                     onChange={(e) => setIdentifier(e.target.value)}
                   />
